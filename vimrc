@@ -14,8 +14,19 @@ filetype plugin indent on         " Turn on detection, plugin and indent at once
 
 set clipboard=unnamed             " Use system clipboard
 set mouse=a                       " Enable mouse
+map <ScrollWheelUp> <C-Y>
+map <ScrollWheelDown> <C-E>
+
+set ttymouse=xterm2
+
+set ttyfast
+set lazyredraw
+set termwinscroll=40000
+
+set viminfo='10,\"100,:20,%,n~/.viminfo
+
 set autoread                      " Reread files automatically if changes outside
-set autochdir                     " Set working directory to the current file
+" set autochdir                     " Set working directory to the current file
 
 let mapleader = ","               " Map the leader key
 
@@ -135,7 +146,6 @@ nnoremap <leader>m <C-W>=
 inoremap <C-s> <esc>:w<cr>a
 nnoremap <C-s> :w<cr>
 
-
 if has("gui_macvim") && has("gui_running")
   " Map command-[ and command-] to indenting or outdenting
   " while keeping the original selection in visual mode
@@ -204,8 +214,8 @@ cnoremap <expr> <C-P> getcmdline()[getcmdpos()-2] ==# ' ' ? expand('%:p:h') : "\
 "
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
-let NERDTreeWinSize = 1
 map <leader>n :NERDTreeToggle<CR>
+nnoremap <leader>f :NERDTreeFind<CR>
 augroup AuNERDTreeCmd
 
 " Start NERDTree and put the cursor back in the other window.
@@ -217,16 +227,16 @@ let NERDTreeIgnore=['\.png$','\.jpg$','\.gif$','\.mp3$','\.flac$', '\.ogg$', '\.
 "
 " CtrlP
 "
-let g:ctrlp_map = ''
 let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$|bower_components|node_modules',
   \ 'file': '\.pyc$\|\.pyo$\|\.rbc$|\.rbo$\|\.class$\|\.o$\|\~$\',
   \ }
+if has('gui_macvim')
+  macmenu &File.Print key=<nop>
+  map <D-p> :CtrlP<CR>
+  imap <D-p> <ESC>:CtrlP<CR>
+endif
 
-map <D-r> :CtrlP<CR>
-imap <D-r> <ESC>:CtrlP<CR>
-
-"
 " Fugitive
 "
 map <leader>gb :Gblame<CR>
@@ -266,3 +276,5 @@ let g:NERDTrimTrailingWhitespace = 1
 " Enable NERDCommenterToggle to check all selected lines is commented or not
 let g:NERDToggleCheckAllLines = 1
 
+map <D-/> NERDCommenterToggle<CR>
+imap <D-/> <Esc><plug>NERDCommenterToggle<CR>i
