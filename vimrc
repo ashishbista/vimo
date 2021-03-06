@@ -231,11 +231,9 @@ let g:ctrlp_custom_ignore = {
   \ 'dir':  '\v[\/]\.(git|hg|svn)$|bower_components|node_modules',
   \ 'file': '\.pyc$\|\.pyo$\|\.rbc$|\.rbo$\|\.class$\|\.o$\|\~$\',
   \ }
-if has('gui_macvim')
-  macmenu &File.Print key=<nop>
-  map <D-p> :CtrlP<CR>
-  imap <D-p> <ESC>:CtrlP<CR>
-endif
+map <C-p> :CtrlP<cr>
+map <D-p> :CtrlP<cr>
+imap <D-p> <ESC>:CtrlP<CR>
 
 " Fugitive
 "
@@ -278,3 +276,9 @@ let g:NERDToggleCheckAllLines = 1
 
 map <D-/> NERDCommenterToggle<CR>
 imap <D-/> <Esc><plug>NERDCommenterToggle<CR>i
+
+"
+" Supertab
+"
+let g:SuperTabMappingForward = '<s-tab>'
+let g:SuperTabMappingBackward = '<tab>'
