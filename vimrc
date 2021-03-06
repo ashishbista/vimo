@@ -69,6 +69,14 @@ set tabstop=2                    " Global tab width.
 set shiftwidth=2                 " And again, related.
 set expandtab                    " Use spaces instead of tabs
 
+if has("autocmd")
+  " make Python follow PEP8 for whitespace ( http://www.python.org/dev/peps/pep-0008/ )
+  au FileType python setlocal tabstop=4 shiftwidth=4
+  " TODO: use community standard
+  au FileType rust setlocal tabstop=2 shiftwidth=2
+endif
+
+
 set laststatus=2                 " Show the status line all the time
 
 " Swap files: https://coderwall.com/p/sdhfug/vim-swap-backup-and-undo-files
@@ -81,7 +89,7 @@ set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
 
 " Ignore file patterns
-set wildignore+=*.docker/*,*.vagrant/*,*/_build/*,*/deps/*,*/tmp/*,*.so,*.swp,*.zip,node_modules/*,.git/*
+set wildignore+=*.docker/*,*.vagrant/*,*/_build/*,*/deps/*,*/tmp/*,*.so,*.swp,*.zip,node_modules/*,.git/*,target/*
 
 "
 " Autorun
@@ -226,7 +234,7 @@ augroup AuNERDTreeCmd
 " autocmd VimEnter * NERDTree | wincmd p
 
 " Ignore binary files
-let NERDTreeIgnore=['\.png$','\.jpg$','\.gif$','\.mp3$','\.flac$', '\.ogg$', '\.mp4$','\.avi$','.webm$','.mkv$','\.pdf$', '\.zip$', '\.tar.gz$', '\.rar$', '\.log$', '\.vagrant$', '\.docker$', 'node_modules', '_build', '*deps*']
+let NERDTreeIgnore=['\.png$','\.jpg$','\.gif$','\.mp3$','\.flac$', '\.ogg$', '\.mp4$','\.avi$','.webm$','.mkv$','\.pdf$', '\.zip$', '\.tar.gz$', '\.rar$', '\.log$', '\.vagrant$', '\.docker$', 'node_modules', '_build', '*deps*', 'target/*']
 
 "
 " CtrlP
