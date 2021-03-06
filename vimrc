@@ -240,9 +240,10 @@ let NERDTreeIgnore=['\.png$','\.jpg$','\.gif$','\.mp3$','\.flac$', '\.ogg$', '\.
 " CtrlP
 "
 let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn|vagrant|docker)$|bower_components|node_modules|target|log|_build|deps|',
+  \ 'dir':  '\v[\/]\.(git|hg|svn|docker|vagrant)$|bower_components|node_modules|_build|deps|target',
   \ 'file': '\.pyc$\|\.pyo$\|\.rbc$|\.rbo$\|\.class$\|\.o$\|\~$\',
   \ }
+
 map <C-p> :CtrlP<cr>
 map <D-p> :CtrlP<cr>
 imap <D-p> <ESC>:CtrlP<CR>
