@@ -48,3 +48,4 @@ echo "Installing unimpaired"
 git clone https://github.com/tpope/vim-unimpaired.git ~/.vim/bundle/vim-unimpaired
 
 cp vimrc ~/.vimrc
+cp gvimrc ~/.gvimrc
