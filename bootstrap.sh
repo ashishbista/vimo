@@ -3,6 +3,7 @@
 echo "Removing old VIM installation"
 rm -rf ~/.vim
 rm -rf ~/.vimrc
+rm -rf ~/.gvimrc
 
 echo "Creating necessary directories"
 mkdir -p ~/.vim/autoload ~/.vim/bundle ~/.vim/colors ~/.vim/repos
@@ -46,6 +47,12 @@ git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/gitgutter
 
 echo "Installing unimpaired"
 git clone https://github.com/tpope/vim-unimpaired.git ~/.vim/bundle/vim-unimpaired
+
+echo "Installing auto-pairs"
+git clone git://github.com/jiangmiao/auto-pairs.git ~/.vim/bundle/auto-pairs
+
+echo "Installing vim-multiple-cursors"
+git clone https://github.com/terryma/vim-multiple-cursors.git ~/.vim/bundle/multiple-cursors
 
 cp vimrc ~/.vimrc
 cp gvimrc ~/.gvimrc

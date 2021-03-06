@@ -115,6 +115,10 @@ nmap <silent> <leader>cd :lcd %:h<CR>
 " Create the directory containing the file in the buffer
 nmap <silent> <leader>md :!mkdir -p %:p:h<CR>
 
+" Jump to the end of the line
+map <C-l> $a
+imap <C-l> <Esc>$a
+
 " Some helpers to edit mode
 " http://vimcasts.org/e/14
 nmap <leader>ew :e <C-R>=expand('%:h').'/'<cr>
