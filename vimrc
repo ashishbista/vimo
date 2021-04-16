@@ -16,6 +16,7 @@ color gruvbox
 let g:gruvbox_transparent_bg=1
 let g:gruvbox_italic=1
 let g:gruvbox_italicize_strings=1
+let g:gruvbox_italicize_comments=1
 let g:gruvbox_invert_signs=1
 let g:gruvbox_improved_strings=1
 let g:gruvbox_improved_warnings=1
@@ -252,6 +253,8 @@ cnoremap <expr> <C-P> getcmdline()[getcmdpos()-2] ==# ' ' ? expand('%:p:h') : "\
 "
 let g:NERDTreeDirArrowExpandable = '▸'
 let g:NERDTreeDirArrowCollapsible = '▾'
+let g:NERDTreeMinimalUI=1
+let g:NERDTreeWinSize=20
 map <leader>n :NERDTreeToggle<CR>
 nnoremap <leader>f :NERDTreeFind<CR>
 augroup AuNERDTreeCmd
