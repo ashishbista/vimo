@@ -3,35 +3,49 @@
 
 set nocompatible                  " Must come first because it changes other options.
 
-call pathogen#infect()
-" call pathogen#helptags()
-" silent! call pathogen#runtime_append_all_bundles()
-
-color onedark                     " Theme
-
-syntax on                         " Turn vim syntax highlighting on
+syntax enable                     " Turn vim syntax highlighting on
 filetype plugin indent on         " Turn on detection, plugin and indent at once
+
+" Theme
+set t_Co=256                      " Number of colors
+set term=xterm-256color
+
+colorscheme gruvbox
+color gruvbox
+
+let g:gruvbox_transparent_bg=1
+let g:gruvbox_italic=1
+let g:gruvbox_italicize_strings=1
+let g:gruvbox_invert_signs=1
+let g:gruvbox_improved_strings=1
+let g:gruvbox_improved_warnings=1
+
+highlight clear SignColumn
+
+" Font
+set guifont=Fira\ Mono:h13
 
 set clipboard=unnamed             " Use system clipboard
 set mouse=a                       " Enable mouse
-map <ScrollWheelUp> <C-Y>
-map <ScrollWheelDown> <C-E>
+set ttymouse=xterm2               " Much faster mouse reporting
+set termwinscroll=40000           " Number of scrollback lines to keep
 
-set ttymouse=xterm2
+set ttyfast                       " Fast terminal connection
+set lazyredraw                    " Will not redraw screen while executing macros
+" set synmaxcol                     " Maximum column in which to search for syntax items
 
-set ttyfast
-set lazyredraw
-set termwinscroll=40000
+" Highlight current line number
+hi CursorLineNr guifg=#fc0071
+" set nocursorline
+set cursorline
+set cursorlineopt=number
 
-set viminfo='10,\"100,:20,%,n~/.viminfo
+set viminfo='10,\"100,:20,%,n~/.viminfo " The viminfo file
 
 set autoread                      " Reread files automatically if changes outside
-" set autochdir                     " Set working directory to the current file
+" set autochdir                   " Set working directory to the current file
 
 let mapleader = ","               " Map the leader key
-
-syntax enable                     " Turn on syntax highlighting.
-filetype plugin indent on         " Turn on file type detection.
 
 set nowrap                        " Don't wrap lines
 " set list                          " Show invisible characters
@@ -73,7 +87,7 @@ if has("autocmd")
   " make Python follow PEP8 for whitespace ( http://www.python.org/dev/peps/pep-0008/ )
   au FileType python setlocal tabstop=4 shiftwidth=4
   " TODO: use community standard
-  au FileType rust setlocal tabstop=2 shiftwidth=2
+  au FileType rust setlocal tabstop=4 shiftwidth=4
 endif
 
 
@@ -105,6 +119,12 @@ autocmd BufWritePre * :%s/\s\+$//e " Autoremove trailing whitespaces
 " Toggle paste mode
 nmap <silent> <F4> :set invpaste<CR>:set paste?<CR>
 imap <silent> <F4> <ESC>:set invpaste<CR>:set paste?<CR>
+
+" Speed up scrolling
+map <ScrollWheelUp> <C-Y>
+map <S-ScrollWheelUp> <C-U>
+map <ScrollWheelDown> <C-E>
+map <S-ScrollWheelDown> <C-D>
 
 " format the entire file
 nnoremap <leader>fef :normal! gg=G``<CR>
@@ -151,14 +171,20 @@ map <Up> gk
 nmap <leader>hs :set hlsearch! hlsearch?<CR>
 
 " Adjust viewports
-nnoremap <leader>z <C-W>\| <C-W>_
-nnoremap <leader>m <C-W>=
+" nnoremap <leader>x <C-W>\| <C-W>_
+" nnoremap <leader>m <C-W>=
 
 " Save with ctrl+s
 inoremap <C-s> <esc>:w<cr>a
 nnoremap <C-s> :w<cr>
 
 if has("gui_macvim") && has("gui_running")
+  " set transparency=5
+  let s:uname = system("uname")
+  if s:uname == "Darwin\n"
+    set guifont=Fira\ Mono:h13
+  endif
+
   " Map command-[ and command-] to indenting or outdenting
   " while keeping the original selection in visual mode
   vmap <D-]> >gv
@@ -295,3 +321,26 @@ imap <D-/> <Esc><plug>NERDCommenterToggle<CR>i
 "
 let g:SuperTabMappingForward = '<s-tab>'
 let g:SuperTabMappingBackward = '<tab>'
+
+" let g:pydocstring_formatter = 'google'
+" let g:pydocstring_doq_path = "/Users/bistaa/Library/Python/3.8/bin/doq"
+
+" Zoom / Restore window.
+function! s:ZoomToggle() abort
+    if exists('t:zoomed') && t:zoomed
+        execute t:zoom_winrestcmd
+        let t:zoomed = 0
+    else
+        let t:zoom_winrestcmd = winrestcmd()
+        resize
+        vertical resize
+        let t:zoomed = 1
+    endif
+endfunction
+
+command! ZoomToggle call s:ZoomToggle()
+nnoremap <silent> <leader>z :ZoomToggle<CR>
+
+tnoremap <C-n> <C-W>N
+
+set spell

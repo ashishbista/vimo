@@ -5,54 +5,58 @@ rm -rf ~/.vim
 rm -rf ~/.vimrc
 rm -rf ~/.gvimrc
 
+export VIM_PLUGINS_DIR=~/.vim/pack/plugins/start
+export VIM_THEMES_DIR=~/.vim/pack/themes/start
+export CURRENT_DIR=$PWD
+
 echo "Creating necessary directories"
-mkdir -p ~/.vim/autoload ~/.vim/bundle ~/.vim/colors ~/.vim/repos
 mkdir -p ~/.vim/tmp ~/.vim/.undo/ ~/.vim/.backup/ ~/.vim/.swp/
+mkdir -p $VIM_PLUGINS_DIR $VIM_THEMES_DIR
 
-echo "Installing pathogen"
-curl -LSso ~/.vim/autoload/pathogen.vim https://raw.githubusercontent.com/tpope/vim-pathogen/master/autoload/pathogen.vim
+cd $VIM_THEMES_DIR
 
-echo "Installing onedark"
-git clone https://github.com/joshdick/onedark.vim.git ~/.vim/repos/onedark.vim
+echo "Installing gruvbox theme"
+git clone https://github.com/morhetz/gruvbox.git
 
-cp -r ~/.vim/repos/onedark.vim/colors/onedark.vim ~/.vim/colors/onedark.vim
-cp -r ~/.vim/repos/onedark.vim/autoload/onedark.vim ~/.vim/autoload/onedark.vim
+cd $VIM_PLUGINS_DIR
 
 echo "Installing nerdtree"
-git clone https://github.com/preservim/nerdtree.git ~/.vim/bundle/nerdtree
+git clone https://github.com/preservim/nerdtree.git
 
 echo "Installing ctrlp"
-git clone https://github.com/ctrlpvim/ctrlp.vim.git ~/.vim/bundle/ctrlp
+git clone https://github.com/ctrlpvim/ctrlp.vim.git
 
 echo "Installing fugitive"
-git clone https://github.com/tpope/vim-fugitive.git ~/.vim/bundle/fugitive
+git clone https://github.com/tpope/vim-fugitive.git
 
 echo "Installing surround"
-git clone https://github.com/tpope/vim-surround.git ~/.vim/bundle/surround
+git clone https://github.com/tpope/vim-surround.git
 
 echo "Installing nerdcommenter"
-git clone https://github.com/preservim/nerdcommenter.git ~/.vim/bundle/nerdcommenter
+git clone https://github.com/preservim/nerdcommenter.git
 
 echo "Installing coc"
-git clone https://github.com/neoclide/coc.nvim.git ~/.vim/bundle/coc
+git clone https://github.com/neoclide/coc.nvim.git
 
 echo "Installing supertab"
-git clone https://github.com/ervandew/supertab.git ~/.vim/bundle/supertab
+git clone https://github.com/ervandew/supertab.git
 
 echo "Installing ack"
-git clone https://github.com/mileszs/ack.vim.git ~/.vim/bundle/ack
+git clone https://github.com/mileszs/ack.vim.git
 
 echo "Installing gitgutter"
-git clone https://github.com/airblade/vim-gitgutter.git ~/.vim/bundle/gitgutter
+git clone https://github.com/airblade/vim-gitgutter.git
 
 echo "Installing unimpaired"
-git clone https://github.com/tpope/vim-unimpaired.git ~/.vim/bundle/vim-unimpaired
+git clone https://github.com/tpope/vim-unimpaired.git
 
 echo "Installing auto-pairs"
-git clone git://github.com/jiangmiao/auto-pairs.git ~/.vim/bundle/auto-pairs
+git clone git://github.com/jiangmiao/auto-pairs.git
 
 echo "Installing vim-multiple-cursors"
-git clone https://github.com/terryma/vim-multiple-cursors.git ~/.vim/bundle/multiple-cursors
+git clone https://github.com/terryma/vim-multiple-cursors.git
+
+cd $CURRENT_DIR
 
 cp vimrc ~/.vimrc
 cp gvimrc ~/.gvimrc
