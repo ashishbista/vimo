@@ -151,7 +151,7 @@ set backupdir=~/.vim/.backup//
 set directory=~/.vim/.swp//
 
 " Ignore file patterns
-set wildignore+=*.docker/*,*.vagrant/*,*/_build/*,*/deps/*,*/tmp/*,*.so,*.swp,*.zip,node_modules/*,.git/*,target/*
+set wildignore+=*.docker/*,*.vagrant/*,*/_build/*,*/deps/*,*/tmp/*,*.so,*.swp,*.zip,node_modules/*,.git/*,target/*,lib/*
 
 "
 " Autorun
@@ -310,7 +310,7 @@ augroup AuNERDTreeCmd
 " autocmd VimEnter * NERDTree | wincmd p
 
 " Ignore binary files
-let NERDTreeIgnore=['\.png$','\.jpg$','\.gif$','\.mp3$','\.flac$', '\.ogg$', '\.mp4$','\.avi$','.webm$','.mkv$','\.pdf$', '\.zip$', '\.tar.gz$', '\.rar$', '\.log$', '\.vagrant$', '\.docker$', 'node_modules', '_build', '*deps*', 'target/*']
+let NERDTreeIgnore=['\.png$','\.jpg$','\.gif$','\.mp3$','\.flac$', '\.ogg$', '\.mp4$','\.avi$','.webm$','.mkv$','\.pdf$', '\.zip$', '\.tar.gz$', '\.rar$', '\.log$', '\.vagrant$', '\.docker$', 'node_modules', '_build', '*deps*', 'target/*', 'lib']
 
 "
 " CtrlP
