@@ -393,4 +393,5 @@ nnoremap <silent> <leader>z :ZoomToggle<CR>
 
 tnoremap <C-n> <C-W>N
 
+autocmd BufWinEnter * if getcmdwintype() == '' | silent NERDTreeMirror | endif
 set spell
