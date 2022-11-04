@@ -1,6 +1,6 @@
 # VIMO
 
-My vim customizations and with the plugins I use.
+The way how I use VIM.
 
 ## Installation
 
