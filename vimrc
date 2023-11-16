@@ -347,6 +347,11 @@ map <leader>gp :Git push<CR>
 " Add spaces after comment delimiters by default
 let g:NERDSpaceDelims = 1
 
+" Change terraform comment style
+let g:NERDCustomDelimiters = {
+    \ 'terraform': { 'left': '#', 'leftAlt': ';' }
+\ }
+
 map <D-/> NERDCommenterToggle<CR>
 imap <D-/> <Esc><plug>NERDCommenterToggle<CR>i
 
