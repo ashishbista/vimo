@@ -56,7 +56,16 @@ git clone git://github.com/jiangmiao/auto-pairs.git
 echo "Installing vim-multiple-cursors"
 git clone https://github.com/terryma/vim-multiple-cursors.git
 
+echo "Installing vim-terraform"
+git clone https://github.com/hashivim/vim-terraform.git
+
+echo "Installing copilot.vim"
+git clone https://github.com/github/copilot.vim.git
+
 cd $CURRENT_DIR
 
 cp vimrc ~/.vimrc
 cp gvimrc ~/.gvimrc
+
+echo "Installing coc.nvim dependencies. It will fail if npm is not available. "
+cd ~/.vim/pack/plugins/start/coc.nvim && npm install
