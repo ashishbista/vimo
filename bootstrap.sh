@@ -23,8 +23,8 @@ cd $VIM_PLUGINS_DIR
 echo "Installing nerdtree"
 git clone https://github.com/preservim/nerdtree.git
 
-echo "Installing ctrlp"
-git clone https://github.com/ctrlpvim/ctrlp.vim.git
+# echo "Installing ctrlp"
+# git clone https://github.com/ctrlpvim/ctrlp.vim.git
 
 echo "Installing fugitive"
 git clone https://github.com/tpope/vim-fugitive.git
@@ -61,6 +61,12 @@ git clone https://github.com/hashivim/vim-terraform.git
 
 echo "Installing copilot.vim"
 git clone https://github.com/github/copilot.vim.git
+
+echo "Installing fzf.vim"
+git clone https://github.com/junegunn/fzf.vim.git
+
+echo "Installing fzf"
+git clone https://github.com/junegunn/fzf.git
 
 cd $CURRENT_DIR
 

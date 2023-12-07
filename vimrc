@@ -318,16 +318,19 @@ augroup AuNERDTreeCmd
 let NERDTreeIgnore=['\.png$','\.jpg$','\.gif$','\.mp3$','\.flac$', '\.ogg$', '\.mp4$','\.avi$','.webm$','.mkv$','\.pdf$', '\.zip$', '\.tar.gz$', '\.rar$', '\.log$', '\.vagrant$', '\.docker$', 'node_modules', '_build', '*deps*', 'target/*']
 
 "
-" CtrlP
+" fzf
 "
-let g:ctrlp_custom_ignore = {
-  \ 'dir':  '\v[\/]\.(git|hg|svn|docker|vagrant)$|bower_components|node_modules|_build|deps|target',
-  \ 'file': '\.pyc$\|\.pyo$\|\.rbc$|\.rbo$\|\.class$\|\.o$\|\~$\',
-  \ }
+map <C-p> :Files<cr>
+map <D-p> :Files<cr>
+imap <D-p> <ESC>:Files<CR>
 
-map <C-p> :CtrlP<cr>
-map <D-p> :CtrlP<cr>
-imap <D-p> <ESC>:CtrlP<CR>
+map <C-b> :Buffers<cr>
+map <D-b> :Buffers<cr>
+imap <D-b> <ESC>:Buffers<CR>
+
+map <C-f> :Ag<cr>
+map <D-f> :Ag<cr>
+imap <D-f> <ESC>:Ag<CR>
 
 " Fugitive
 "
