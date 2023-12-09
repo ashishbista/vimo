@@ -135,6 +135,8 @@ cd vimo && bash install.sh
 
 #### FZF
 
+It is configured to respect `.gitignore` files by default.
+
 - **File Search:** `<C-p>`, `<D-p>`
   - Open FZF for file search.
 
