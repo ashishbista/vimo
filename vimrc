@@ -332,6 +332,8 @@ map <C-f> :Ag<cr>
 map <D-f> :Ag<cr>
 imap <D-f> <ESC>:Ag<CR>
 
+let $FZF_DEFAULT_COMMAND = 'ag -g ""'
+
 " Fugitive
 "
 map <leader>gb :Gblame<CR>
