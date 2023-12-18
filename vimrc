@@ -157,8 +157,9 @@ set wildignore+=*.docker/*,*.vagrant/*,*/_build/*,*/deps/*,*/tmp/*,*.so,*.swp,*.
 " Autorun
 "
 autocmd BufWritePre * :%s/\s\+$//e " Autoremove trailing whitespaces
+autocmd SwapExists * let v:swapchoice = "e" " Autoload swap file
 
-"
+
 " Key mappings
 "
 "
