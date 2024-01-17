@@ -44,6 +44,21 @@ let s:colors = {
       \ "vertsplit": get(s:overrides, "vertsplit", { "gui": "#181A1F", "cterm": "59", "cterm16": "15" }),
       \}
 
+let g:fzf_colors = {
+       \ 'fg':      ['fg', 'GruvboxFg1'],
+       \ 'bg':      ['fg', 'GruvboxBg0'],
+       \ 'hl':      ['fg', 'GruvboxYellow'],
+       \ 'fg+':     ['fg', 'GruvboxFg1'],
+       \ 'bg+':     ['fg', 'GruvboxBg1'],
+       \ 'hl+':     ['fg', 'GruvboxYellow'],
+       \ 'info':    ['fg', 'GruvboxBlue'],
+       \ 'prompt':  ['fg', 'GruvboxFg4'],
+       \ 'pointer': ['fg', 'GruvboxBlue'],
+       \ 'marker':  ['fg', 'GruvboxOrange'],
+       \ 'spinner': ['fg', 'GruvboxYellow'],
+       \ 'header':  ['fg', 'GruvboxBg3']
+       \ }
+
 let s:red = s:colors.red
 let s:dark_red = s:colors.dark_red
 let s:green = s:colors.green
